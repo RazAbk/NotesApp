@@ -1,0 +1,109 @@
+.header-block{
+    background-color: $main-light-color;
+    height: 4.5rem;
+    width: calc(99vw - 1rem);
+    box-sizing:border-box;
+    margin: 0.25rem auto;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    
+    border-radius: 10px;
+
+    .header-block-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        h2{
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+
+            .label{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: calc(100vw - 17.5rem);
+            }
+
+            p{
+                font-size: 1.5rem;
+            }
+
+            span{
+                font-size: 0.7rem; 
+            }
+            
+            @include for-small-phone{
+                span{
+                    font-size: 0.8rem; 
+                }
+            }
+
+            @include for-tablet{
+                gap: 0.5rem;
+
+                span{
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        p{
+            font-size: 0.9rem;
+        }
+    }
+    
+    .filter-btn, .balance-amount{
+        padding-top: 0.5rem;
+        font-size: 1.5rem;
+        font-family: RobotoCondensed-Regular;
+        
+        @include for-tablet{
+            font-size: 2rem;
+        }
+        
+    }
+    
+    .filter-btn{
+        cursor: pointer;
+    }
+    
+    @include for-tablet{
+        margin: 0.5rem auto;
+        .header-block-content{
+            gap: 0rem;
+            
+            h2{
+                font-size: 2rem;
+
+                .label{
+                    max-width: calc(100vw - 25rem);
+                }
+            }
+            
+            p{
+                font-size: 1.15rem;
+            }
+        }
+    }
+    
+    @include for-desktop{
+        width: 98%;
+        margin: 0.4rem;
+
+        .header-block-content{
+            h2{
+                .label{
+                    max-width: calc(100vw - 50rem);
+                }
+            }
+        }
+    }
+}

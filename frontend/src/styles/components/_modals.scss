@@ -1,0 +1,514 @@
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: $main-gray-color;
+    z-index: 105;
+    min-height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .modal-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        width: 100%;
+        height: 3rem;
+        background-color: $main-dark-color;
+        border-radius: 10px 10px 0 0;
+        font-size: 1.5rem;  
+        color: $txt-light-color;
+        
+        .exit-modal-btn{
+            cursor: pointer;
+        }
+    }
+    
+    .modal-body{
+        padding: 1.5rem;
+        width: 100%;
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+        .modal-form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+    }
+
+    button{
+        border-radius: 10px;
+        background-color: $main-dark-color;
+        color: $txt-light-color;
+        &:hover, &:active{
+            background-color: #464646;
+        }
+    }
+
+    .MuiTextField-root, .MuiInputBase-root{
+        border-radius: 10px;
+        background-color: $main-light-color;
+    }
+
+    .txt-input{
+        width: 100%;
+    }
+}
+
+.search-modal{
+    width: 95vw;
+    height: 75vh;
+    max-height: 27.5rem;
+    
+    @include for-tablet{
+        width: 45rem;
+        height: 27.5rem;
+    }
+    
+    .modal-form{
+        padding-bottom: 1.75rem;
+    }
+    
+    .date-filters, .input-selectors{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        
+        @include for-tablet{
+            justify-content: space-between;
+            width: 80%;
+        }
+    }
+
+    .input-field{
+        width: 7rem;
+        
+        @include for-small-phone{
+            width: 8.5rem;
+        }
+
+        @include for-tablet{
+            width: 15rem
+        }
+
+        @include for-desktop{
+            width: 15rem
+        }
+    }
+
+}
+
+.search-modal, .action-add-edit-modal{
+    
+    .form-buttons{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+}
+
+.action-add-edit-modal{
+    width: 95vw;
+    height: 95vh;
+    
+    @include for-small-phone{
+        width: 95vw;
+        height: 85vh;
+        max-height: 34rem;
+    }
+    
+    @include for-tablet{
+        width: 25rem;
+        height: 34rem;
+    }
+
+    .input-selectors{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+
+        .input-select{
+            &>*{
+                width: 15rem;
+            }
+            
+            button{
+                height: 30px;
+                font-size: 0.8rem;   
+            }
+        }
+        
+        .inner-group{
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            
+            .input-select{
+                .MuiSelect-select{
+                    height: 1rem;
+                }
+
+                &>*{
+                    width: 7rem;
+                }
+
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+    }
+
+
+    .amount-input{
+        width: 50%;
+    }
+
+    .input-field{
+        width: 15rem;
+    }
+}
+
+.category-add-modal{
+    width: 85vw;
+    height: 65vh;
+    max-height: 32rem;
+    
+    @include for-small-phone{
+        height: 60vh;
+    }
+    
+    @include for-tablet{
+        width: 20rem;
+        height: 25rem;
+    }
+}
+
+.label-add-modal{
+    width: 85vw;
+    height: 35vh;
+    max-height: 17rem;
+    
+    @include for-tablet{
+        width: 20rem;
+        height: 15rem;
+    }
+}
+
+.category-add-modal ,.label-add-modal {
+
+    .modal-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        button{
+            width: 8rem;
+        }
+
+        .icon-preview{
+            font-size: 1.5rem;
+            color: $txt-light-color;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+}
+
+.pick-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+
+    width: 15rem;
+    height: 15rem;
+    background-color: $main-light-color;
+    z-index: 150;
+    padding: 0.75rem;
+    overflow-y: scroll;
+    
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fill, 3rem);
+    justify-items: center;
+}
+
+.colors-pick-modal{
+    .color{
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 2px solid black;
+    }
+}
+
+.icon-pick-modal{
+    font-size: 2rem;
+    &>*{
+        cursor: pointer;
+    }
+}
+
+.settings-modal{
+    width: 95vw;
+    height: 82vh;
+    max-height: 35rem;
+    
+    
+    .modal-body{
+        .tabs{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6rem;
+
+            border-bottom: 1px gray solid;
+
+            h2{
+                cursor: pointer;
+                color: #616161;
+                padding-bottom: 0.25rem;
+                transition: border 0.3s;
+                transition: color 0.3s;
+            }
+        }
+
+        .settings-body{
+            width: 100%;
+            height: 100%;
+            max-height: 22rem;
+            padding: 1.25rem 1.25rem 0rem 1.25rem;
+            
+            overflow-y: auto;
+            
+            @include for-small-phone{
+                max-height: 27rem;
+            }
+        }
+
+
+        @include for-small-phone{
+            .tabs{
+                font-size: 0.75rem;
+            }
+    
+            .settings-body{
+                padding: 1.5rem 1.5rem 0rem 1.5rem;
+            }
+        }
+    }
+    
+    @include for-tablet{
+        width: 35rem;
+        height: 35rem;
+
+        .modal-body{
+            .tabs{
+                width: 90%;
+                h2{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .account-settings, .preferences-settings, .categories-settings, .labels-settings{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .account-settings, .preferences-settings{
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+
+            p{
+                font-size: 0.8em;
+                margin-bottom: 0.3rem;
+            }
+
+            @include for-tablet{
+                p{
+                    font-size: 1em;
+                    margin-bottom: 0rem;
+                }
+            }
+    
+            button{
+                &>*{
+                    padding-left: 1rem;
+                    font-size: 2rem;
+                }
+            }
+
+            
+        }
+
+        .delete-account-btn{
+            margin-top: 2rem;
+            background-color: #cf1322;
+        }
+    }
+
+    .categories-settings, .labels-settings{
+        .select-modal{
+            height: 85%;
+            width: 100%;
+            background-color: $main-light-color;
+            border-radius: 10px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            overflow-y: auto;
+            padding: 1rem;
+
+            .category-preview, .label-preview{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                
+                .left-side{
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    font-size: 1.25rem;
+
+                    overflow: hidden;
+                    
+                    .icon{
+                        font-size: 1.25rem;
+                        color: $txt-light-color;
+                        border-radius: 100%;
+                        width: 30px;
+                        height: 30px;
+                        min-width: 30px;
+                        min-height: 30px;
+                        
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .label, p{
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        max-width: 70%;
+                    }
+                    
+                    .label{
+                        max-width: unset;
+                        font-size: 1.25rem;
+                        color: #1d5de6;
+                    }
+                }
+
+                .right-side{
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    font-size: 1.25rem;
+
+                    div{
+                        cursor: pointer;
+                    }
+                    .delete-btn{
+                        color: rgb(194, 24, 24);
+                    }
+                }
+                
+                @include for-tablet{
+                    .category-preview, .label-preview{
+                        .left-side{
+                            font-size: 1.5rem;
+                            .icon{
+                                width: 40px;
+                                height: 40px;
+                                font-size: 1.5rem;
+                            }
+
+                        }
+                        .right-side{
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+            
+            .empty-msg{
+                text-align: center;
+            }
+
+        }
+
+        @include for-tablet{
+            .select-modal{
+                width: 85%;
+            }
+        }
+    }   
+}
+
+.confirm-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+
+    width: 17.5rem;
+    height: 15rem;
+    background-color: $main-light-color;
+    z-index: 150;
+    overflow-y: scroll;
+
+    .buttons{
+        display: flex;
+        gap: 1rem;
+
+        button{
+            width: 5.5rem;
+        }
+    }
+}

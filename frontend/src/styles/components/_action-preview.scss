@@ -1,0 +1,142 @@
+.action-preview{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    
+    height: 4rem;
+    border-bottom: 1px rgba(145, 145, 145, 0.2) solid;
+    padding: 0.75rem 1.5rem;
+
+    background-color: $main-light-color;
+
+    transition: background-color 0.2s;
+
+    .left-side{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .action-data{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        h3{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100vw - 11.5rem);
+        }
+        
+        p{
+            font-size: 0.75rem;
+        }
+        
+        .action-labels{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100vw - 11.5rem);
+
+            span{
+                margin-right: 0.4rem;
+                color: rgb(29, 93, 230);
+            }
+        }
+    }
+
+    .action-preview-actions{
+        position: absolute;
+        right: 0;
+        height: 102%;
+        width: 8rem;
+        transform: translateX(100%);
+
+        display: flex;
+
+        transition: 0.2s;
+
+        button{
+            font-size: 1.4rem;
+            border: transparent;
+            width: 50%;
+            color: $txt-light-color;
+            transition: 0.2s;
+        }
+
+        >button:first-child{
+            background-color: rgb(226, 131, 21);
+            border-radius: 7.5px 0 0 7.5px;
+            &:hover{
+                background-color: rgb(245, 142, 25);
+            }
+        }
+        
+        >button:nth-child(2){
+            background-color: rgb(192, 45, 45);
+            &:hover{
+                background-color: rgb(211, 35, 35);
+            }
+        }
+    }
+
+    &:focus{
+        outline: none;
+    }
+    
+    .right-side{
+        transition: 0.2s;
+    }
+
+    @include for-tablet{
+        .action-data{
+            h3{
+                max-width: calc(50vw - 12rem);
+            }
+
+            .action-labels{
+                max-width: calc(50vw - 12rem);
+            }
+        }
+
+    }
+
+    @include for-desktop{
+        &:hover {
+            background-color: rgba(150, 150, 150, 0.1);
+        }
+
+        .action-data{
+            h3{
+                max-width: calc(50vw - 24rem);
+            }
+
+            .action-labels{
+                max-width: calc(50vw - 24rem);
+            }
+        }
+    }
+
+    &:last-child{
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+.selected-action{
+    background-color: rgba(150, 150, 150, 0.1);
+}
+
+.action-details-icon{
+    font-size: 1.5rem;
+    color: $txt-light-color;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

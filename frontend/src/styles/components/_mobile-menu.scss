@@ -1,0 +1,27 @@
+.mobile-menu{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 3.5rem;
+    background-color: $main-dark-color;
+    color: $txt-light-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 50;
+
+    .app-logo{
+        font-size: 1.5rem;
+    }
+
+    .mobile-menu-icon{
+        @include flex-center;
+        cursor: pointer;
+        font-size: 2rem;
+    }
+
+    @include for-desktop{
+        display: none;
+    }
+}

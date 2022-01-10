@@ -1,0 +1,161 @@
+.main-app-menu{
+    background-color: $main-dark-color;
+    color: $txt-light-color;
+    width: 17rem;
+    height: 100%;
+    box-sizing: border-box;
+    
+    position: fixed;
+    transform: translateX(-100%);
+    left: 0;
+    top:0;
+    
+    transition: transform 0.3s;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    z-index: 101;
+    padding: 0.5rem 0;
+
+    
+    
+    &.open-menu{
+        transform: translateX(0%);
+    }
+
+    .app-logo{
+        height: 2rem;
+        font-size: 1.5rem;
+        @include flex-center;
+    }
+
+    .user-details{
+        height: 6rem;
+        padding: 0rem 1rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+
+        .image{
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+        h3{
+            font-size: 1.5rem;
+        }
+    }
+
+    .main-menu{
+        flex-grow: 1;
+        width: 100%;
+        
+        h2{
+            font-size: 1.75rem;
+            padding: 0 1rem;
+        }
+
+        .inner-menu{
+            margin: 1rem 0;
+            
+            @include for-desktop{
+                margin: 2rem 0;
+            }
+
+            ul{
+                list-style: none;
+            }
+
+            li{
+                width: 100%;
+                cursor: pointer;
+                font-size: 1.25rem;
+                padding: 0.25rem 2rem;
+                color: $txt-gray-color;
+                transition: background-color 0.2s;
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                @include for-tablet{
+                    &:hover{
+                        color: $txt-light-color;
+                        background-color: rgba(0, 0, 0, 0.18);
+                    }
+                }
+            }
+        }
+    }
+
+    .labels-menu{
+        ul{
+            overflow-y: scroll;
+            max-height: calc(100vh - 27rem);
+        }
+    }
+
+    .menu-li-active{
+        color: $txt-light-color !important;
+        background-color: rgba(0, 0, 0, 0.18);
+    }
+
+    hr{
+        width: 90%;
+        margin: 0 auto;
+        border-color: #b2b2b23f;
+    }
+
+    .actions-bar{
+        height: 3rem;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.75rem;
+
+        .logout-btn{
+            transform: rotate(180deg);
+        }
+
+        .account-actions{
+            display: flex;
+            gap: 1rem;
+        }
+        .quick-actions{
+            font-size: 2.25rem;
+            @include flex-center;
+        }
+
+        svg{
+            cursor: pointer;
+        }
+    }
+
+    @include for-small-phone {
+        width: 19rem;
+        .user-details{
+            h3{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    
+    
+    @include for-desktop{
+        height: 100vh;
+        min-width: 23rem;
+        position: static;
+        transform: unset;
+        z-index: 80;
+    }
+}
