@@ -3,8 +3,6 @@
 CREATE TABLE users (
   _id TEXT PRIMARY KEY UNIQUE,
   user_name TEXT,
-  first_name TEXT,
-  last_name TEXT,
   password TEXT
 );
 

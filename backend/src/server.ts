@@ -58,11 +58,6 @@ app.use('/api/note', notesRoutes)
 
 
 app.get('/**', async (req, res) => {
-    // const db = await connection
-    // await db.all('INSERT INTO users (_id, user_name, first_name, last_name, password) VALUES("a101", "RazAb", "raz", "ab", "1234")') 
-    // const result = await db.all('SELECT * FROM users')
-    // console.log(result)
-
     // Todo: serve index.html file
     res.status(200).send('hello server!')
 });

@@ -1,13 +1,11 @@
 import { Request, Response } from "express";
 const authService = require('./auth.service')
 
-
-
 async function signup(req: Request, res: Response) {
     try {
-        const { userName, password, firstName, lastName } = req.body
+        const { userName, password } = req.body
 
-        const connection = await require('../services/db.service')
+        const connection = await require('../../services/db.service')
         const db = await connection
 
         const usersFound = await db.all(`SELECT user_name FROM users WHERE user_name = "${userName}"`)
@@ -15,8 +13,8 @@ async function signup(req: Request, res: Response) {
         if (usersFound.length > 0) {
             res.status(500).send('username is taken')
         } else {
-            await authService.signup(userName, password, firstName, lastName)
-            const user = authService.login(userName, password)
+            await authService.signup(userName, password)
+            const user = await authService.login(userName, password)
 
             if (!user) res.send(null)
 

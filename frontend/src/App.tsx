@@ -5,15 +5,19 @@ import { NotesApp } from './pages/NotesApp';
 import { HomePage } from './pages/HomePage';
 import { NotesDetailsPage } from './pages/NoteDetailsPage';
 import { Header } from './components/Header';
+import { sessionStorageService } from './services/session-storage.service';
 
 function App() {
+
+  const loggedInUser = sessionStorageService.load('loggedInUser')
+
   return (
     <Router>
-      <Header />
+      {loggedInUser && <Header />}
       <Routes>
-        <Route path="/" element={<NotesApp />} />
         <Route path="/note/:noteId" element={<NotesDetailsPage />} />
-        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/notes" element={<NotesApp />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </Router>
   )
