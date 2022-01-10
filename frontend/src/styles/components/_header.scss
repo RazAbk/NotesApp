@@ -1,0 +1,33 @@
+header{
+    height: 5rem;
+    width: 100%;
+    padding: 1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background-color: $main-dark-color;
+    color: $txt-light-color;
+
+    .header-main-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .app-logo{
+            font-family: SairaCondensed-Bold;
+        }
+        
+        h2{
+            font-size: 1rem;
+        }
+        
+    }
+    
+    
+    .logout-btn{
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+}
