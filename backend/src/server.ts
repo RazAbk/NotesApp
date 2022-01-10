@@ -1,6 +1,23 @@
 import express from 'express'
+import { IUser } from './interfaces/userInterfaces'
 require('dotenv').config()
 const expressSession = require('express-session')
+
+// Expand the Request object data types
+declare global {
+    namespace Express {
+        interface Request {
+            dbConnection: Promise<any>
+        }
+    }
+}
+
+// Expand the express-session data types
+declare module 'express-session' {
+    interface SessionData {
+        user: IUser
+    }
+}
 
 const cors = require('cors')
 const path = require('path')
@@ -29,8 +46,17 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const connection = require('./services/db.service')
+const connectDB = require('./middlewares/connection.middleware')
+app.use(connectDB)
 
-// Routes goes here!
+const authRoutes = require('./api/auth/auth.routes')
+const usersRoutes = require('./api/users/users.routes')
+const notesRoutes = require('./api/notes/notes.routes')
+
+// API Routes
+app.use('/api/auth', authRoutes)
+app.use('/api/user', usersRoutes)
+app.use('/api/note', notesRoutes)
 
 
 app.get('/**', async (req, res) => {
@@ -38,7 +64,7 @@ app.get('/**', async (req, res) => {
     // await db.all('INSERT INTO users (_id, user_name, first_name, last_name, password) VALUES("a101", "RazAb", "raz", "ab", "1234")') 
     // const result = await db.all('SELECT * FROM users')
     // console.log(result)
-    
+
     // Todo: serve index.html file
     res.status(200).send('hello server!')
 });
