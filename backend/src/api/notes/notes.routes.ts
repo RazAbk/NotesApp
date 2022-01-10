@@ -1,10 +1,10 @@
 import express from 'express'
-// const { login, signup, logout } = require('./auth.controller')
+const { getNotes } = require('./notes.controller')
+const { requireAuth } = require('../../middlewares/auth.middleware')
+
 
 const notesRouter = express.Router()
 
-// notesRouter.post('/login', login)
-// notesRouter.post('/signup', signup)
-// notesRouter.post('/logout', logout)
+notesRouter.get('/', getNotes)
 
 module.exports = notesRouter

@@ -6,7 +6,7 @@ module.exports = {
 
 async function getById(userId: string) {
     try {
-        const connection = require('../../services/db.service')
+        const connection = await require('../../services/db.service')
         const db = await connection
 
         const user = db.get(`SELECT * FROM users WHERE _id = "${userId}"`)

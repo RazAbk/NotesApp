@@ -46,8 +46,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const connection = require('./services/db.service')
-const connectDB = require('./middlewares/connection.middleware')
-app.use(connectDB)
 
 const authRoutes = require('./api/auth/auth.routes')
 const usersRoutes = require('./api/users/users.routes')
