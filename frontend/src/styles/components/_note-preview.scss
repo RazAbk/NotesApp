@@ -1,0 +1,35 @@
+.note-preview{
+  width: 10rem;
+  height: 10rem;
+  padding: 1rem;
+  
+  background-color: rgb(240, 230, 145);
+  border-radius: 10px;
+
+  box-shadow: 5px 5px 11px 1px rgba(0,0,0,0.49);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+
+  h2{
+      margin-bottom: 1rem;
+  }
+
+  p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+}
+
+  @include for-tablet{
+    width: 15rem;
+    height: 15rem; 
+
+    P{
+        font-size: 1rem;
+    }
+  }
+}
