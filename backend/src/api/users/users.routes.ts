@@ -1,10 +1,8 @@
 import express from 'express'
-// const { login, signup, logout } = require('./auth.controller')
+const { getUser } = require('./users.controller')
 
 const userRoutes = express.Router()
 
-// userRoutes.post('/login', login)
-// userRoutes.post('/signup', signup)
-// userRoutes.post('/logout', logout)
+userRoutes.get('/user', getUser)
 
 module.exports = userRoutes

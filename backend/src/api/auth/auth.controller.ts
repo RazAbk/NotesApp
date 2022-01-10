@@ -23,6 +23,7 @@ async function signup(req: Request, res: Response) {
             res.json(user)
         }
     } catch(err) {
+        console.log('Could not signup\n')
         console.error(err)
         res.json(null)
     }
@@ -31,15 +32,16 @@ async function signup(req: Request, res: Response) {
 async function login(req: Request, res: Response) {
     try{
         const { userName, password } = req.body
-
+        
         const user = await authService.login(userName,password)
         
         if(!user) res.json(null)
-
+        
         req.session.user = user
         res.json(user)
     }catch(err){
-        console.error('Could not login', err)
+        console.error('Could not login\n')
+        console.error(err)
         res.json(null)
     }
 }
@@ -54,7 +56,8 @@ async function logout(req: Request, res: Response) {
             }
         })
     }catch(err) {
-        console.error('Could not logout', err)
+        console.error('Could not logout\n')
+        console.error(err)
         res.status(500).send(null)
     }
 }
