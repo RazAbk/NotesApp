@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { INote } from '../interfaces/dataInterfaces'
 import { NotePreview } from '../components/NotePreview'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,14 +14,13 @@ export const NotesApp = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const loggedInUser = useSelector((state: RootState) => state.userModule.loggedInUser) || sessionStorageService.load('loggedInUser')
-    // const [notes, setNotes] = useState<INote[] | null>([])
     const notes = useSelector((state: RootState) => state.userModule.data)
 
     useEffect(() => {
         (async () => {
             await dispatch(getNotes())
         })()
-    }, [])
+    }, [dispatch])
 
     const handleNewNote = async () => {
         const newNote = {
