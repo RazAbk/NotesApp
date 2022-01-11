@@ -25,6 +25,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap:1rem;
             
             button{
                 background-color: rgb(38, 153, 46);
@@ -34,13 +35,15 @@
         }
 
         h2, input{
-            font-size: 3rem;
+            margin-top: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 4rem;
         }
 
         p, textarea{
             font-size: 1.5rem;
-            overflow-y: scroll;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         input, textarea{
@@ -66,9 +69,10 @@
             gap: 0.5rem;
 
         }
+
         form button, button{
             padding: 0.3rem 0.75rem;
-            font-size: 1.15rem;
+            font-size: 0.9rem;
             border-radius: 5px;
             color: $txt-light-color;
         }
@@ -80,5 +84,16 @@
         & button:nth-child(2){
             background-color: rgb(158, 32, 32);
         }
+
+        @include for-tablet{
+            h2,input{
+                margin-top: 0;
+                font-size: 3rem;
+            }
+            form button, button{
+                font-size: 1.15rem;
+            }
+        }
+        
     }
 }
