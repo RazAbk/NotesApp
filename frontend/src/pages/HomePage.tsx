@@ -45,6 +45,9 @@ export const HomePage = () => {
 
         if (!isLogin) {
             user = await dispatch(signup(credentials))
+            if(!user){
+                alert('Username is already taken!')
+            }
         } else {
             user = await dispatch(login(credentials))
         }
