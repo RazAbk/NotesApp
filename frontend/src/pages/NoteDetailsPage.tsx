@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { INote } from '../interfaces/dataInterfaces'
 import { RootState } from '../store/store'
 import { useDispatch, useSelector } from 'react-redux'
-import { addNote, deleteNote } from '../store/actions/user.action'
+import { addNote, deleteNote, getNotes } from '../store/actions/user.action'
 
 export const NotesDetailsPage = () => {
 
@@ -17,7 +17,7 @@ export const NotesDetailsPage = () => {
     const [isEditMode, setEditMode] = useState(false)
 
     useEffect(() => {
-        if (noteId) {
+        if (noteId && notes) {
             const findNote = notes.find((note: INote) => note._id === noteId) || null
             setNote(findNote)
         }
@@ -42,7 +42,12 @@ export const NotesDetailsPage = () => {
         setEditMode(false)
     }
 
-    if (!note) return <h1>Loading note...</h1>
+    if (!note){
+        (async () => {
+            await dispatch(getNotes())
+        })()
+        return null
+    }
 
     return (
         <div className="note-details-page">

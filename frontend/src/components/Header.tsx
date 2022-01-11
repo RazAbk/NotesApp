@@ -1,23 +1,26 @@
 import React from 'react'
 import { BiLogOut } from 'react-icons/bi'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { IUser } from '../interfaces/userInterfaces'
+import { sessionStorageService } from '../services/session-storage.service'
 import { logout } from '../store/actions/user.action'
+import { RootState } from '../store/store'
 
-interface IProps {
-    loggedInUser: IUser | null
-}
 
-export const Header = ({loggedInUser}: IProps) => {
+export const Header = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const loggedInUser = useSelector((state: RootState) => state.userModule.loggedInUser) || sessionStorageService.load('loggedInUser')
+
     const handleLogout = async () => {
         await dispatch(logout())
+        sessionStorageService.remove('loggedInUser')
         navigate('/')
     }
+
+    if(!loggedInUser) return null
 
     return (
         <header>

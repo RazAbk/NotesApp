@@ -52,7 +52,9 @@ export const HomePage = () => {
         if (user) {
             navigate('/note')
         } else {
-            console.log(`Could not ${isLogin ? 'Login' : 'Signup'}!`)
+            if(isLogin){
+                alert(`Could not Login, wrong username or password`)
+            }
         }
     }
 
