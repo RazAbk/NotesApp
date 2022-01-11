@@ -48,7 +48,7 @@ export const NotesDetailsPage = () => {
         <div className="note-details-page">
             <div className="note-details">
                 <div className="action-btns">
-                    <button onClick={() => { setEditMode(prevMode => !prevMode) }}>{isEditMode ? 'Cancel Edit' : 'Edit'}</button>
+                    <button onClick={() => { setEditMode(prevMode => !prevMode) }}>{isEditMode ? 'Cancel' : 'Edit'}</button>
                     <button onClick={onDeleteNote}>Delete</button>
                 </div>
                 {!isEditMode &&

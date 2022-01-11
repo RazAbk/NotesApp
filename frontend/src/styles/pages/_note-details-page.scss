@@ -30,6 +30,7 @@
                 background-color: rgb(38, 153, 46);
                 width: 5rem;
             }
+
         }
 
         h2, input{
@@ -39,6 +40,7 @@
 
         p, textarea{
             font-size: 1.5rem;
+            overflow-y: scroll;
         }
 
         input, textarea{
