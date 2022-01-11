@@ -6,17 +6,19 @@ import { HomePage } from './pages/HomePage';
 import { NotesDetailsPage } from './pages/NoteDetailsPage';
 import { Header } from './components/Header';
 import { sessionStorageService } from './services/session-storage.service';
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
 
 function App() {
 
-  const loggedInUser = sessionStorageService.load('loggedInUser')
+  const loggedInUser = useSelector((state: RootState) => state.userModule.loggedInUser) || sessionStorageService.load('loggedInUser')
 
   return (
     <Router>
-      {loggedInUser && <Header />}
+      {loggedInUser && <Header loggedInUser={loggedInUser} />}
       <Routes>
         <Route path="/note/:noteId" element={<NotesDetailsPage />} />
-        <Route path="/notes" element={<NotesApp />} />
+        <Route path="/note" element={<NotesApp />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </Router>

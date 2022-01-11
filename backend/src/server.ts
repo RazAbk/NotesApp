@@ -28,7 +28,7 @@ const session = expressSession({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: false }
 })
 
 app.use(express.json())

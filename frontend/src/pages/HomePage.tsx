@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
-import { login, signup } from '../store/actions/user.action'
+import { sessionStorageService } from '../services/session-storage.service'
+import { clearUser, login, signup } from '../store/actions/user.action'
 
 export const HomePage = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [isLogin, setIsLogin] = useState(true)
+
+    useEffect(() => {
+        dispatch(clearUser())
+        sessionStorageService.remove('loggedInUser')
+    }, [])
 
     const handleSubmit = async (ev: any) => {
         ev.preventDefault()

@@ -1,4 +1,5 @@
 import { ICredentials } from "../../interfaces/userInterfaces"
+import { notesService } from "../../services/notes.service"
 import { userService } from "../../services/user.service"
 import { AppDispatch } from "../store"
 
@@ -42,6 +43,31 @@ export const logout = () => {
             })
         } catch (err) {
             console.error(err)
+        }
+    }
+}
+
+export const clearUser = () => {
+    return (dispatch: AppDispatch) => {
+        dispatch({
+            type: "SET_USER",
+            user: null
+        })
+    }
+}
+
+export const getNotes = () => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            const notes = await notesService.getNotes()
+            dispatch({
+                type: "SET_DATA",
+                data: notes
+            })
+            return notes
+        } catch (err) {
+            console.error(err)
+            return null
         }
     }
 }

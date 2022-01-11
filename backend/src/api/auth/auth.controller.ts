@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { IUser } from "../../interfaces/userInterfaces";
 const authService = require('./auth.service')
 
 async function signup(req: Request, res: Response) {
@@ -32,11 +33,12 @@ async function login(req: Request, res: Response) {
     try {
         const { userName, password } = req.body
 
-        const user = await authService.login(userName, password)
+        const user: IUser = await authService.login(userName, password)
 
         if (!user) res.json(null)
 
         req.session.user = user
+
         res.json(user)
     } catch (err) {
         console.error('Could not login\n')

@@ -6,56 +6,67 @@ import { INote } from '../interfaces/dataInterfaces'
 const notesData: INote[] = [
     {
         _id: 'asdasd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'as1dasd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asd2asd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda3sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda4sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda15sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda5sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda6sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda7sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda8sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
     {
         _id: 'asda9sd',
+        userId: 'asd',
         title: 'do that',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
     },
