@@ -58,8 +58,7 @@ app.use('/api/note', notesRoutes)
 
 
 app.get('/**', async (req, res) => {
-    // Todo: serve index.html file
-    res.status(200).send('hello server!')
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
 
 const PORT = process.env.PORT || 3030;
