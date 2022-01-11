@@ -1,5 +1,5 @@
 export interface INote {
-    _id: string;
+    _id?: string;
     title: string;
     body: string;
 }

@@ -12,6 +12,19 @@ async function getNotes(req: Request, res: Response) {
     }
 }
 
+async function addNote(req: Request, res: Response) {
+    try{
+        const note = req.body
+        const notes = await notesService.addNote(req.session.user._id, note)
+
+        res.json(notes)
+    }catch(err) {
+        console.log('Could not add note\n')
+        console.error(err)
+        res.json(null)
+    }
+}
+
 async function deleteNote(req: Request, res: Response) {
     try{
         const { noteId } = req.params
@@ -27,5 +40,6 @@ async function deleteNote(req: Request, res: Response) {
 
 module.exports = {
     getNotes,
+    addNote,
     deleteNote
 }

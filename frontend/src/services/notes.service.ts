@@ -9,6 +9,7 @@ const BASE_URL = process.env.NODE_ENV === 'production' ? '' : '//localhost:3030'
 
 export const notesService = {
     getNotes,
+    addNote,
     deleteNote
 }
 
@@ -21,6 +22,22 @@ async function getNotes(): Promise<INote[] | null> {
         return null
     } catch (err) {
         console.log('Could not fetch notes\n')
+        console.error(err)
+        return null
+    }
+}
+
+
+
+async function addNote(note: INote): Promise<INote[] | null> {
+    try {
+        const res: AxiosResponse<INote[] | null | undefined> = await axios.post(`${BASE_URL}/api/note`, note)
+        if(res.data){
+            return res.data
+        }
+        return null
+    } catch (err) {
+        console.log('Could not add note\n')
         console.error(err)
         return null
     }

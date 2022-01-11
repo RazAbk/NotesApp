@@ -33,3 +33,19 @@
     }
   }
 }
+
+.add-new{
+  background-color: rgb(255, 251, 211);
+  position: relative;
+
+  svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    color: #292929b2;
+    width: 40%;
+    height: 40%;
+  }
+ 
+}

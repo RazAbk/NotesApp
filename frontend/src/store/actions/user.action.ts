@@ -1,3 +1,4 @@
+import { INote } from "../../interfaces/dataInterfaces"
 import { ICredentials, IUser } from "../../interfaces/userInterfaces"
 import { notesService } from "../../services/notes.service"
 import { userService } from "../../services/user.service"
@@ -69,6 +70,22 @@ export const getNotes = () => {
     return async (dispatch: AppDispatch) => {
         try {
             const notes = await notesService.getNotes()
+            dispatch({
+                type: "SET_DATA",
+                data: notes
+            })
+            return notes
+        } catch (err) {
+            console.error(err)
+            return null
+        }
+    }
+}
+
+export const addNote = (note: INote) => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            const notes = await notesService.addNote(note)
             dispatch({
                 type: "SET_DATA",
                 data: notes

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { INote } from '../interfaces/dataInterfaces'
 import { RootState } from '../store/store'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteNote } from '../store/actions/user.action'
+import { addNote, deleteNote } from '../store/actions/user.action'
 
 export const NotesDetailsPage = () => {
 
@@ -30,7 +30,7 @@ export const NotesDetailsPage = () => {
         }
     }
 
-    const handleSubmit = (ev: any) => {
+    const handleSubmit = async (ev: any) => {
         ev.preventDefault()
         if(!note) return
 
@@ -38,10 +38,8 @@ export const NotesDetailsPage = () => {
         noteCopy.title = ev.target[0].value
         noteCopy.body = ev.target[1].value
 
-        console.log('new note')
-        console.log(noteCopy)
-
-        // Todo: Update note logic
+        await dispatch(addNote(noteCopy))
+        setEditMode(false)
     }
 
     if (!note) return <h1>Loading note...</h1>
@@ -62,8 +60,8 @@ export const NotesDetailsPage = () => {
                 {isEditMode &&
                     <>
                         <form onSubmit={handleSubmit}>
-                            <input type="text" name="title" defaultValue={note.title} />
-                            <textarea name="body" defaultValue={note.body} />
+                            <input type="text" name="title" placeholder="Note title" defaultValue={note.title} />
+                            <textarea name="body" placeholder="Note body" defaultValue={note.body} />
                             <button>Submit</button>
                         </form>
                     </>
