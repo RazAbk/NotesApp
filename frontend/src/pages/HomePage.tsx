@@ -13,7 +13,7 @@ export const HomePage = () => {
     useEffect(() => {
         dispatch(clearUser())
         sessionStorageService.remove('loggedInUser')
-    }, [])
+    }, [dispatch])
 
     const handleSubmit = async (ev: any) => {
         ev.preventDefault()
@@ -32,7 +32,7 @@ export const HomePage = () => {
         }
 
         if (user){
-            navigate('/notes')
+            navigate('/note')
         } else {
             console.log(`Could not ${isLogin ? 'Login' : 'Signup'}!`)
         }

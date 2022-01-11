@@ -1,4 +1,4 @@
-import { ICredentials } from "../../interfaces/userInterfaces"
+import { ICredentials, IUser } from "../../interfaces/userInterfaces"
 import { notesService } from "../../services/notes.service"
 import { userService } from "../../services/user.service"
 import { AppDispatch } from "../store"
@@ -44,6 +44,15 @@ export const logout = () => {
         } catch (err) {
             console.error(err)
         }
+    }
+}
+
+export const setUser = (user: IUser) => {
+    return (dispatch: AppDispatch) => {
+        dispatch({
+            type: "SET_USER",
+            user
+        })
     }
 }
 
