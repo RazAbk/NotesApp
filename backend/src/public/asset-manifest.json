@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3f9a76d4.css",
+    "main.js": "/static/js/main.2ab29ced.js",
+    "static/media/RobotoCondensed-Light.ttf": "/static/media/RobotoCondensed-Light.877e34f998290555a554.ttf",
+    "static/media/OpenSans-Regular.ttf": "/static/media/OpenSans-Regular.d7d7b8359eeb9cddfba6.ttf",
+    "static/media/SairaCondensed-Bold.ttf": "/static/media/SairaCondensed-Bold.b5e96ff13a80fed0f93d.ttf",
+    "index.html": "/index.html",
+    "main.3f9a76d4.css.map": "/static/css/main.3f9a76d4.css.map",
+    "main.2ab29ced.js.map": "/static/js/main.2ab29ced.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f9a76d4.css",
+    "static/js/main.2ab29ced.js"
+  ]
+}
