@@ -33,7 +33,6 @@ async function login(credentials: ICredentials) {
 async function signup(credentials: ICredentials) {
     try {
         const res = await axios.post(`${BASE_URL}/api/auth/signup`, credentials)
-        console.log(res.data)
         if (res.data) {
             sessionStorageService.save('loggedInUser', res.data)
             return res.data
