@@ -23,7 +23,7 @@ export const Header = ({loggedInUser}: IProps) => {
         <header>
             <BiLogOut onClick={handleLogout} className="logout-btn" />
             <div className="header-main-content">
-                <h1 className="app-logo">NotesApp</h1>
+                <h1 onClick={() => {navigate('/note')}} className="app-logo">NotesApp</h1>
                 <h2>Hello {loggedInUser?.userName}</h2>
             </div>
             <span></span>

@@ -15,13 +15,13 @@ function App() {
 
   const [isHeader, setHeader] = useState(true)
 
-  useEffect(() => {
-    if(!loggedInUser){
-      setHeader(false)
-    } else {
-      setHeader(true)
-    }
-  }, [loggedInUser])
+  // useEffect(() => {
+  //   if(!loggedInUser){
+  //     setHeader(false)
+  //   } else {
+  //     setHeader(true)
+  //   }
+  // }, [loggedInUser])
 
   return (
     <Router>

@@ -2,96 +2,32 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { INote } from '../interfaces/dataInterfaces'
-
-const notesData: INote[] = [
-    {
-        _id: 'asdasd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'as1dasd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asd2asd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda3sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda4sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda15sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda5sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda6sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda7sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda8sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-    {
-        _id: 'asda9sd',
-        userId: 'asd',
-        title: 'do that',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, tempora at! Earum pariatur blanditiis dolores nostrum illo dolorum repellendus consequatur?'
-    },
-]
-
+import { RootState } from '../store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteNote } from '../store/actions/user.action'
 
 export const NotesDetailsPage = () => {
 
     const { noteId } = useParams()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
+    const notes = useSelector((state: RootState) => state.userModule.data)
     const [note, setNote] = useState<INote | null>(null)
     const [isEditMode, setEditMode] = useState(false)
 
     useEffect(() => {
         if (noteId) {
-            // Todo: Fetch data of the note by id
-            const findNote = notesData.find((note: INote) => note._id === noteId) || null
+            const findNote = notes.find((note: INote) => note._id === noteId) || null
             setNote(findNote)
         }
-    }, [noteId])
+    }, [noteId, notes])
 
-    const onDeleteNote = () => {
-        // Todo: Delete note logic
-        navigate('/')
+    const onDeleteNote = async () => {
+        if(noteId){
+            await dispatch(deleteNote(noteId))
+            navigate('/note')
+        }
     }
 
     const handleSubmit = (ev: any) => {

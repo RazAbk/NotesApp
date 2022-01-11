@@ -17,10 +17,10 @@ export const NotesApp = () => {
             setNotes(notes)
         })()
 
-        return () => {
-            sessionStorageService.remove('loggedInUser')
-            dispatch(clearUser())
-        }
+        // return () => {
+        //     sessionStorageService.remove('loggedInUser')
+        //     dispatch(clearUser())
+        // }
     }, [dispatch])
 
 
@@ -28,6 +28,7 @@ export const NotesApp = () => {
         <div className="notes-app">
             <main>
                 {notes && notes.map((note: INote) => <NotePreview key={note._id} note={note}/>)}
+                {(notes && notes.length === 0) && <h1>No notes to display</h1>}
             </main>
         </div>
     )

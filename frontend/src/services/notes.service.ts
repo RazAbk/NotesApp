@@ -8,7 +8,8 @@ const axios = Axios.create({
 const BASE_URL = process.env.NODE_ENV === 'production' ? '' : '//localhost:3030'
 
 export const notesService = {
-    getNotes
+    getNotes,
+    deleteNote
 }
 
 async function getNotes(): Promise<INote[] | null> {
@@ -24,3 +25,18 @@ async function getNotes(): Promise<INote[] | null> {
         return null
     }
 }
+
+async function deleteNote(noteId: string): Promise<INote[] | null> {
+    try {
+        const res: AxiosResponse<INote[] | null | undefined> = await axios.delete(`${BASE_URL}/api/note/${noteId}`)
+        if(res.data){
+            return res.data
+        }
+        return null
+    } catch (err) {
+        console.log('Could not delete note\n')
+        console.error(err)
+        return null
+    }
+}
+

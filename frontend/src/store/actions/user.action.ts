@@ -80,3 +80,20 @@ export const getNotes = () => {
         }
     }
 }
+
+export const deleteNote = (noteId: string) => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            const notes = await notesService.deleteNote(noteId)
+            dispatch({
+                type: "SET_DATA",
+                data: notes
+            })
+            return notes
+        } catch (err) {
+            console.error(err)
+            return null
+        }
+    }
+}
+
