@@ -5,7 +5,8 @@ const { requireAuth } = require('../../middlewares/auth.middleware')
 
 const notesRouter = express.Router()
 
-// require(requireAuth)
+// Require auth to access the API
+notesRouter.use(requireAuth)
 
 notesRouter.get('/', getNotes)
 notesRouter.post('/', addNote)

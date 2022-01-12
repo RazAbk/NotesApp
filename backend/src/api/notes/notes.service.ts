@@ -45,7 +45,7 @@ async function deleteNote(userId: string, noteId: string) {
         const connection = await require('../../services/db.service')
         const db = await connection
 
-        await db.run(`DELETE FROM notes WHERE _id = "${noteId}"`)
+        await db.run(`DELETE FROM notes WHERE _id = "${noteId}" AND userId = "${userId}"`)
         const notes = await db.all(`SELECT * FROM notes WHERE userId = "${userId}"`)
         return notes
     } catch (err) {
