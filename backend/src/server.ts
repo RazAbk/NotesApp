@@ -3,15 +3,6 @@ import { IUser } from './interfaces/userInterfaces'
 require('dotenv').config()
 const expressSession = require('express-session')
 
-// Expand the Request object data types
-declare global {
-    namespace Express {
-        interface Request {
-            dbConnection: Promise<any>
-        }
-    }
-}
-
 // Expand the express-session data types
 declare module 'express-session' {
     interface SessionData {
@@ -45,6 +36,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions))
 }
 
+// Connect to SQL db
 const connection = require('./services/db.service')
 
 const authRoutes = require('./api/auth/auth.routes')
@@ -56,7 +48,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/user', usersRoutes)
 app.use('/api/note', notesRoutes)
 
-
+// API Fallback
 app.get('/**', async (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
